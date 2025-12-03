@@ -1,0 +1,521 @@
+:root {
+  --color-primario: rgb(67, 42, 211);
+  --color-secundario: #f447c0;
+  --color-fondo-suave: #e7e2ff;
+  --color-texto-principal: #2e2e2e;
+  --color-acento: #7a5fff;
+}
+
+ *{
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+ }
+
+body {
+  font-family: Arial, sans-serif;
+  background-size: cover;
+  background-color: #f4f0ff;
+  color: #2e2e2e;
+  line-height: 1.5;
+  font-size: 1.2rem;
+}
+
+
+
+header {
+  background-color: #5c3dcf;
+  color: white;
+  text-align: center;
+  padding: 1.5rem 0;
+  position: sticky;
+  top: 0;
+}
+
+header h1 {
+  font-size: 1.6rem;
+}
+
+nav {
+  margin-top: 0.6rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 1rem;
+  font-size: 1rem;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+section {
+  padding: 3rem 1rem;
+  max-width: 900px;
+  margin: auto;
+}
+
+section h2 {
+  color: #422d9c;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  border-bottom: 2px solid #7a5fff;
+  display: inline-block;
+}
+
+.presentacion {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  background-color: #e7e2ff;
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.presentacion img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}
+
+.contenedor-metas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+
+ 
+.meta {
+  background-color: white;
+  border: 1px solid var(--color-acento);
+  padding: 1.2rem;
+  border-radius: 10px;
+  flex: 1 1 250px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  border-left: 6px solid var(--color-primario);
+
+ 
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.meta:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+  background-color: #f7f7f7;       
+  border-left-color: var(--color-secundario); 
+  cursor: pointer;               
+}
+
+
+
+
+
+
+
+/* --- INTERESES  */
+#intereses {
+padding: 3rem 1rem;
+max-width: 900px;
+margin: auto;
+}
+
+
+#intereses h2 {
+color: #422d9c;
+margin-bottom: 1rem;
+font-size: 1.5rem;
+border-bottom: 2px solid #7a5fff;
+display: inline-block;
+}
+
+
+.intereses-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+gap: 1.2rem;
+}
+
+
+.interes-card {
+background: white;
+border-radius: 10px;
+padding: 1rem;
+text-align: center;
+box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+transition: transform .2s, box-shadow .2s;
+border: 1px solid #d6ccff;
+}
+
+
+.interes-card:hover {
+transform: scale(1.04);
+box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+
+.interes-card img {
+width: 70px;
+height: 70px;
+object-fit: cover;
+border-radius: 50%;
+margin-bottom: .8rem;
+border: 2px solid #7a5fff;
+}
+
+
+.interes-card h3 {
+font-size: 1rem;
+color: #422d9c;
+margin: 0;
+}
+
+
+
+.info-contacto {
+  background-color: #e7e2ff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+
+.info-contacto a {
+  color: #422d9c;
+  text-decoration: none;
+}
+
+.info-contacto a:hover {
+  text-decoration: underline;
+}
+
+
+/* --- HABILIDADES --- */
+#habilidades {
+  padding: 3rem 1rem;
+  max-width: 900px;
+  margin: auto;
+}
+
+#habilidades h2 {
+  color: #422d9c;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  border-bottom: 2px solid #7a5fff;
+  display: inline-block;
+}
+
+.habilidad {
+  margin-bottom: 1.5rem;
+}
+
+.habilidad span {
+  font-weight: bold;
+  color: var(--color-primario);
+}
+
+.barra {
+  width: 100%;
+  background: #e7e2ff;
+  border-radius: 10px;
+  margin-top: 0.4rem;
+  height: 20px;
+  overflow: hidden;
+}
+
+/* --- BARRAS DE HABILIDADES CON PORCENTAJE --- */
+
+.progreso {
+  height: 100%;
+  width: 0;
+  border-radius: 10px;
+  animation: llenar 2s forwards;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* porcentaje al lado derecho */
+  padding-right: 8px;
+  font-size: 0.9rem;
+  color: white;
+  font-weight: bold;
+  --w: 0%;
+}
+.barra {
+  width: 100%;
+  height: 18px;          /* <-- altura de la barra */
+  background: #e7e2ff;   /* fondo suave */
+  border-radius: 10px;
+  overflow: hidden;      /* para que la barra interna no se salga */
+  margin-top: 0.3rem;
+  margin-bottom: 1.2rem;
+}
+
+
+/* Animación basada en variable */
+@keyframes llenar {
+  from { width: 0; }
+  to { width: var(--w); }
+}
+
+/* Colores distintos */
+.python {
+  background: #6c5ce7; /* morado */
+}
+
+.htmlcss {
+  background: #3f8d7d; /* verde */
+}
+
+.js {
+  background: #fdcb6e; /* amarillo */
+  color: #333; /* para que el texto se lea mejor */
+}
+
+.sql{
+  background: #3c97dd; /* azul */
+}
+
+/* --- CONTACTO2 --- */
+#contacto2 {
+  background-color: #e7e2ff;
+  padding: 2.5rem 1rem;
+  border-radius: 10px;
+  max-width: 900px;
+  margin: auto;
+  margin-bottom: 2rem;
+}
+
+#contacto2 h2 {
+  color: #422d9c;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #7a5fff;
+  display: inline-block;
+}
+
+#contacto2 form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#contacto2 input,
+#contacto2 textarea {
+  padding: 0.8rem;
+  border: 1px solid var(--color-acento);
+  border-radius: 8px;
+  font-size: 1rem;
+  background: white;
+}
+
+#contacto2 button {
+  padding: 0.8rem;
+  background: var(--color-primario);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+#contacto2 button:hover {
+  background: var(--color-acento);
+}
+
+
+footer {
+  background-color: #422d9c;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+
+
+
+#menu-toggle {
+  display: none;
+}
+
+
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: white;
+  user-select: none;
+  margin-top: 0.5rem;
+}
+
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+
+@media screen and (max-width: 600px) {
+  .hamburger {
+    display: block; 
+  }
+
+  .nav-links {
+    display: none;        
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+    text-align: center;
+  }
+
+  #menu-toggle:checked + .hamburger + .nav-links {
+    display: flex;
+  }
+}
+
+footer {
+  background-color: #422d9c;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+
+/* ------------------------------------------- */
+/* 📱 TABLETS (pantallas medianas) */
+/* ------------------------------------------- */
+
+@media (max-width: 1024px) {
+
+    body {
+        padding: 0 1.5rem;
+        font-size: 1rem;
+    }
+
+    .section {
+        padding: 2rem 0;
+    }
+
+    /* Grid de intereses */
+    .intereses-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1rem;
+    }
+
+    .interes-card img {
+        width: 60px;
+        height: 60px;
+    }
+
+    h1, h2 {
+        font-size: 1.6rem;
+    }
+
+    p {
+        font-size: 1.05rem;
+    }
+
+    /* Sobre mi */
+    #sobre-mi {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    #sobre-mi img {
+        width: 220px;
+        margin: auto;
+        border-radius: 12px;
+    }
+
+    /* Habilidades grid */
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        gap: 1rem;
+    }
+
+    /* Navbar */
+    nav a {
+        font-size: 0.95rem;
+        padding: 0.5rem;
+    }
+}
+
+
+/* ------------------------------------------- */
+/* 📱 CELULARES (pantallas pequeñas) */
+/* ------------------------------------------- */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 0 .8rem;
+        font-size: 0.95rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+        text-align: center;
+    }
+
+    .section {
+        padding: 1.5rem 0;
+    }
+
+    /* Imagen en sobre mí */
+    #sobre-mi img {
+        width: 180px;
+    }
+
+    /* Intereses */
+    .intereses-grid {
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        gap: .8rem;
+    }
+
+    .interes-card {
+        padding: 0.8rem;
+    }
+
+    .interes-card img {
+        width: 55px;
+        height: 55px;
+    }
+
+    /* Habilidades */
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+        gap: .8rem;
+    }
+
+    /* Menú responsive */
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: .5rem;
+    }
+
+    nav a {
+        font-size: 0.85rem;
+        padding: .4rem .6rem;
+    }
+
+    /* Ajuste de cards generales */
+    .card, .interes-card, .skill-card {
+        border-radius: 8px;
+    }
+}
